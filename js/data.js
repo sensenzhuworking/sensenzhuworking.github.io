@@ -26,7 +26,7 @@ function renderWorks() {
                 <div class="work-meta">${w.meta[lang] || w.meta.zh}</div>
                 <div class="work-desc">${w.desc[lang] || w.desc.zh}</div>
             </div>
-            <a href="${w.pdf}" target="_blank" class="work-link">${w.pdf === '#' ? (lang === 'zh' ? '查看详情 →' : 'Details →') : (lang === 'zh' ? '查看 PDF →' : 'Open PDF →')}</a>
+            ${w.pdf !== '#' ? `<a href="${w.pdf}" target="_blank" class="work-link">${lang === 'zh' ? '查看 PDF →' : 'Open PDF →'}</a>` : ''}
         </div>
     `).join('');
 }

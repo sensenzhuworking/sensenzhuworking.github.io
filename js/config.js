@@ -58,13 +58,6 @@ const SITE_CONFIG = {
                     meta: { zh: "帝国理工大学 · 文献综述 (2025)", en: "Imperial College London · Literature Review (2025)" },
                     desc: { zh: "系统综述跨季储能技术，聚焦近等温压缩空气储能的技术路线与 CFD 方法。", en: "A systematic review of inter-seasonal storage technologies, focusing on near-isothermal CAES and CFD approaches." },
                     pdf: "pdfs/literature-review.pdf"
-                },
-                {
-                    icon: "📊",
-                    title: { zh: "华泰证券：能源化工行业 KPI 数据库与可视化", en: "Huatai Securities: Energy & Chemical KPI Database & Dashboard" },
-                    meta: { zh: "华泰证券 · 实习项目 (2023)", en: "Huatai Securities · Internship Project (2023)" },
-                    desc: { zh: "构建 50+ 项运营与财务指标数据库，开发 Python 可视化仪表盘，将周度数据汇编时间从 4+ 小时缩短至 30 分钟。", en: "Built a 50+ metric KPI database; developed Python dashboards, cutting weekly data compilation from 4+ hrs to 30 min." },
-                    pdf: "#"
                 }
             ]
         },
@@ -116,13 +109,6 @@ const SITE_CONFIG = {
                     meta: { zh: "伦敦大学学院 · 本科课程设计 (2024)", en: "UCL · Undergraduate Design Project (2024)" },
                     desc: { zh: "设计反应器控制回路与安全联锁系统，绘制完整 P&ID，完成 SIL 安全完整性分析。", en: "Designed control loops and safety interlock systems; produced full P&ID with SIL analysis." },
                     pdf: "pdfs/unit-design-2.pdf"
-                },
-                {
-                    icon: "🏭",
-                    title: { zh: "乙苯生产工厂设计（200 ktpa）", en: "Ethylbenzene Production Plant Design (200 ktpa)" },
-                    meta: { zh: "伦敦大学学院 · 毕业设计 (2024)", en: "UCL · Capstone Design Project (2024)" },
-                    desc: { zh: "全流程工厂设计，gPROMS 模拟反应与分离工段，HAZOP 分析，CAPEX £85M 经济评估。", en: "Full plant design with gPROMS simulation, HAZOP analysis, and CAPEX £85M economic evaluation." },
-                    pdf: "#"
                 }
             ]
         },
@@ -154,20 +140,6 @@ const SITE_CONFIG = {
                 en: "CFA Level I Candidate · DCF Valuation · Financial Modelling"
             },
             works: [
-                {
-                    icon: "📊",
-                    title: { zh: "华泰证券：能源化工行业 KPI 数据库与可视化", en: "Huatai Securities: Energy & Chemical KPI Database & Dashboard" },
-                    meta: { zh: "华泰证券 · 实习项目 (2023)", en: "Huatai Securities · Internship Project (2023)" },
-                    desc: { zh: "覆盖 10+ 家能源化工企业，构建 50+ 项运营与财务指标数据库，开发 Python 可视化仪表盘。", en: "Covered 10+ energy/chemical companies; built a 50+ metric KPI database with Python dashboards." },
-                    pdf: "#"
-                },
-                {
-                    icon: "📝",
-                    title: { zh: "行业深度研究报告（20+ 份日度简报，4 份月报）", en: "Industry Research Reports (20+ daily briefs, 4 monthly reports)" },
-                    meta: { zh: "华泰证券 · 研究产出 (2023)", en: "Huatai Securities · Research Output (2023)" },
-                    desc: { zh: "覆盖炼油利润、化工价差、碳交易政策影响、产能扩张主题。", en: "Covered refining margins, chemical spreads, carbon policy impact, and capacity expansion themes." },
-                    pdf: "#"
-                },
                 {
                     icon: "🔬",
                     title: { zh: "压缩空气储能：技术经济分析视角", en: "CAES: A Techno-economic Perspective" },
@@ -210,28 +182,14 @@ const SITE_CONFIG = {
                     title: { zh: "巴斯夫防蚊虫供应链项目 — 非洲市场商业计划", en: "BASF Mosquito Net Programme — African Market Strategy" },
                     meta: { zh: "巴斯夫 (D-BASF) · 项目组长 (2021)", en: "BASF (D-BASF) · Project Lead (2021)" },
                     desc: { zh: "撰写 23 页综合商业计划书，涵盖多级供应链建模、本地生产可行性、WHO 采购框架分析与 5 国市场进入策略。", en: "Co-authored 23-page proposal: multi-echelon supply chain modelling, local production feasibility, WHO procurement analysis, 5-country market entry." },
-                    pdf: "#"
+                    pdf: "pdfs/msc-research-project.pdf"
                 },
                 {
-                    icon: "📊",
-                    title: { zh: "中国工业浓缩设备市场战略评估", en: "China Industrial Concentration Equipment Market Assessment" },
-                    meta: { zh: "工程咨询 · 市场分析项目 (2024)", en: "Engineering Consulting · Market Analysis (2024)" },
-                    desc: { zh: "分析中国 ¥300 亿+ 工业设备市场，识别热法向膜法/MVR 技术转型趋势，输出战略建议影响 R&D 投资决策。", en: "Analysed China's ¥30B+ equipment market, identified thermal-to-membrane/MVR transition trends, shaped R&D investment strategy." },
-                    pdf: "#"
-                },
-                {
-                    icon: "📈",
-                    title: { zh: "能源化工行业 KPI 数据库与自动化仪表盘", en: "Energy & Chemical KPI Database & Automated Dashboards" },
-                    meta: { zh: "华泰证券 · 实习项目 (2023)", en: "Huatai Securities · Internship Project (2023)" },
-                    desc: { zh: "构建 50+ 指标数据库，开发 Python 可视化仪表盘实现自动化行业追踪，周度汇编时间从 4 小时缩短至 30 分钟。", en: "Built 50+ metric KPI database and Python dashboards; cut weekly compilation from 4+ hours to 30 minutes." },
-                    pdf: "#"
-                },
-                {
-                    icon: "📝",
-                    title: { zh: "月度行业深度研究报告", en: "Monthly In-depth Industry Reports" },
-                    meta: { zh: "华泰证券 · 研究成果 (2023)", en: "Huatai Securities · Research Output (2023)" },
-                    desc: { zh: "完成 4 份 15–20 页深度报告，涵盖炼油利润、化工价差、碳交易政策等主题，向 20 人跨部门团队汇报。", en: "Produced 4 monthly reports (15-20 pages) on refining margins, chemical spreads, carbon policy; presented to 20-person cross-functional team." },
-                    pdf: "#"
+                    icon: "🔬",
+                    title: { zh: "压缩空气储能：数值与实验研究", en: "CAES: Numerical & Experimental Investigation" },
+                    meta: { zh: "帝国理工大学 · 硕士研究项目 (2025)", en: "Imperial College London · MSc Research Project (2025)" },
+                    desc: { zh: "开发 Python 数值模型与实验验证，体现结构化问题解决与数据分析能力。", en: "Python numerical modelling and experimental validation — demonstrating structured problem-solving and data analysis skills." },
+                    pdf: "pdfs/msc-research-project.pdf"
                 }
             ]
         }
