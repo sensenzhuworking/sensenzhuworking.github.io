@@ -1,4 +1,19 @@
-/* ====== 中英文翻译字典 ====== */
+/*
+ * ====== 国际化 + 模式切换引擎 ======
+ * 自动读取 URL 参数 ?mode=xxx，加载对应岗位内容
+ */
+
+// 读取 URL 参数
+function getModeFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get('mode');
+    // 检查 mode 是否在配置中，不在则默认 trading
+    return (mode && SITE_CONFIG.modes[mode]) ? mode : 'trading';
+}
+
+const CURRENT_MODE = getModeFromURL();
+
+// ====== 基础翻译字典 ======
 const i18n = {
     "nav.about": {
         zh: "关于",
@@ -13,12 +28,12 @@ const i18n = {
         en: "Contact"
     },
     "hero.subtitle": {
-        zh: "大宗商品交易 · Imperial MSc / UCL BEng",
-        en: "Commodity Trading · Imperial MSc / UCL BEng"
+        zh: "",
+        en: ""
     },
     "hero.desc": {
-        zh: "化学工程背景，具备华泰证券交易台支持经验。擅长数据驱动的研究分析、Python 建模与行业研究，致力于在 commodity trading 领域发展。",
-        en: "Chemical engineer with hands-on trading desk experience at Huatai Securities. Skilled in data-driven research, Python modelling, and market analysis — pursuing a career in commodity trading."
+        zh: "",
+        en: ""
     },
     "hero.cta": {
         zh: "浏览成果 ↓",
@@ -45,24 +60,24 @@ const i18n = {
         en: "Expertise"
     },
     "about.skills.tech": {
-        zh: "Python (pandas, matplotlib) · Excel · Bloomberg · SQL",
-        en: "Python (pandas, matplotlib) · Excel · Bloomberg · SQL"
+        zh: "",
+        en: ""
     },
     "about.skills.field": {
-        zh: "数据分析 · 量化建模 · 行业研究 · 交易台支持",
-        en: "Data Analysis · Quantitative Modelling · Research · Trading Desk Support"
+        zh: "",
+        en: ""
     },
     "about.interests.title": {
         zh: "方向",
         en: "Target Role"
     },
     "about.interests.eng": {
-        zh: "大宗商品交易 · 能源/化工品种 · 结构化产品",
-        en: "Commodity Trading · Energy/Chemicals · Structured Products"
+        zh: "",
+        en: ""
     },
     "about.interests.fin": {
-        zh: "CFA Level I Candidate · 市场分析 · 风险管理",
-        en: "CFA Level I Candidate · Market Analysis · Risk Management"
+        zh: "",
+        en: ""
     },
     "works.title": {
         zh: "成果展示",
@@ -82,7 +97,23 @@ const i18n = {
     }
 };
 
-/* ====== 语言切换逻辑 ====== */
+// ====== 从 config 填充模式内容 ======
+function loadModeContent(mode) {
+    const mc = SITE_CONFIG.modes[mode];
+    if (!mc) return;
+
+    i18n["hero.subtitle"] = mc.subtitle;
+    i18n["hero.desc"] = mc.heroDesc;
+    i18n["about.skills.tech"] = mc.skills;
+    i18n["about.skills.field"] = mc.field;
+    i18n["about.interests.eng"] = mc.interest1;
+    i18n["about.interests.fin"] = mc.interest2;
+}
+
+// 加载当前模式内容
+loadModeContent(CURRENT_MODE);
+
+// ====== 语言切换逻辑 ======
 let currentLang = localStorage.getItem('lang') || 'zh';
 
 function setLang(lang) {
@@ -97,11 +128,11 @@ function setLang(lang) {
         }
     });
 
-    // 更新语言切换按钮文字
+    // 更新语言切换按钮
     const btn = document.getElementById('lang-toggle');
     if (btn) btn.textContent = lang === 'zh' ? 'EN' : '中';
 
-    // 更新作品列表（如果已经渲染）
+    // 更新作品列表
     if (typeof renderWorks === 'function') {
         renderWorks();
     }
