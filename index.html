@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensen Zhu — Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       BAUHAUS DESIGN SYSTEM
+       ============================================ */
+    :root {
+      --ink:        #111318;
+      --ink-soft:   #2a2d35;
+      --ink-muted:  #5a5e6a;
+      --stone:      #8a8e98;
+      --mist:       #e8e9ec;
+      --cloud:      #f4f5f7;
+      --paper:      #fafbfc;
+      --white:      #ffffff;
+      --accent:     #c49a6c;
+      --accent-dark:#a67c52;
+      --accent-light:#e8d5c0;
+      --success:    #4a7c59;
+
+      --font-body:  'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-display: 'Playfair Display', Georgia, serif;
+
+      --space-xs:   0.5rem;
+      --space-sm:   1rem;
+      --space-md:   1.5rem;
+      --space-lg:   2.5rem;
+      --space-xl:   4rem;
+      --space-2xl:  6rem;
+      --space-3xl:  9rem;
+
+      --radius:     2px;
+      --radius-sm:  1px;
+      --max-width:  1100px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--accent-light);
+      color: var(--ink);
+    }
+
+    .geo-square {
+      width: 10px; height: 10px;
+      background: var(--accent);
+      display: inline-block;
+    }
+    .geo-circle {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--ink);
+      display: inline-block;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* ============================================
+       HEADER / NAV
+       ============================================ */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(250, 251, 252, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--mist);
+      transition: all 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .nav-link {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-link:hover { color: var(--ink); }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    .lang-toggle {
+      display: flex;
+      gap: 2px;
+      background: var(--cloud);
+      padding: 3px;
+      border-radius: var(--radius);
+    }
+    .lang-btn {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border: none;
+      background: transparent;
+      color: var(--stone);
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+      border-radius: var(--radius-sm);
+    }
+    .lang-btn.active {
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      padding: calc(var(--space-3xl) + 40px) 0 var(--space-3xl);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-accent-bar {
+      position: absolute;
+      left: 0; top: 200px;
+      width: 6px; height: 140px;
+      background: var(--accent);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .hero-left { position: relative; z-index: 2; }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--stone);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-md);
+    }
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: var(--space-sm);
+      letter-spacing: -0.03em;
+    }
+    .hero-name .accent-underline {
+      position: relative;
+      display: inline-block;
+    }
+    .hero-name .accent-underline::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 0;
+      width: 100%; height: 8px;
+      background: var(--accent-light);
+      z-index: -1;
+    }
+    .hero-name .name-cn {
+      display: inline;
+    }
+    .hero-name .name-cn.hidden {
+      display: none;
+    }
+    .hero-subtitle {
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      margin-bottom: var(--space-lg);
+      line-height: 1.6;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      max-width: 520px;
+      margin-bottom: var(--space-lg);
+      line-height: 1.75;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 14px 28px;
+      border: 2px solid var(--ink);
+      transition: all 0.25s ease;
+    }
+    .hero-cta:hover {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .hero-cta svg {
+      width: 16px; height: 16px;
+      transition: transform 0.25s;
+    }
+    .hero-cta:hover svg { transform: translateY(3px); }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-visual {
+      position: relative;
+      width: 300px; height: 300px;
+    }
+    .hero-visual .geo-box-1 {
+      position: absolute;
+      top: 0; left: 0;
+      width: 190px; height: 190px;
+      border: 3px solid var(--ink);
+      z-index: 2;
+    }
+    .hero-visual .geo-box-2 {
+      position: absolute;
+      bottom: 20px; right: 0;
+      width: 170px; height: 170px;
+      background: var(--accent);
+      opacity: 0.85;
+      z-index: 1;
+    }
+    .hero-visual .geo-box-3 {
+      position: absolute;
+      top: 50px; right: 30px;
+      width: 100px; height: 100px;
+      border: 2px solid var(--mist);
+      z-index: 0;
+    }
+    .hero-visual .geo-text {
+      position: absolute;
+      bottom: 50px; left: 25px;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      z-index: 3;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+
+    /* ============================================
+       SECTION HEADERS
+       ============================================ */
+    .section-header { margin-bottom: var(--space-xl); }
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: var(--space-sm);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .section-line {
+      width: 50px; height: 3px;
+      background: var(--accent);
+      margin-top: var(--space-sm);
+    }
+
+    /* ============================================
+       ABOUT SECTION
+       ============================================ */
+    .about {
+      padding: var(--space-3xl) 0;
+      background: var(--white);
+      border-top: 1px solid var(--mist);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    .about-card {
+      padding: var(--space-lg);
+      border: 1px solid var(--mist);
+      transition: all 0.3s ease;
+      position: relative;
+      background: var(--white);
+    }
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 0;
+      background: var(--accent);
+      transition: height 0.3s ease;
+    }
+    .about-card:hover::before { height: 100%; }
+    .about-card:hover {
+      border-color: var(--stone);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+    .about-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-sm);
+      display: block;
+    }
+    .about-card-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-sm);
+    }
+    .about-card-content {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+    .about-card-content .edu-item {
+      margin-bottom: var(--space-sm);
+    }
+    .about-card-content .edu-school {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .about-card-content .edu-en {
+      color: var(--stone);
+      font-weight: 400;
+    }
+    .about-card-content .edu-meta {
+      font-size: 0.8rem;
+      color: var(--stone);
+      margin-top: 2px;
+    }
+    .about-card-content .edu-courses {
+      font-size: 0.8rem;
+      color: var(--ink-muted);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+    .about-card-content .skill-group {
+      margin-bottom: var(--space-xs);
+    }
+    .about-card-content .skill-label {
+      font-weight: 600;
+      color: var(--ink);
+      font-size: 0.82rem;
+    }
+    .about-card-content .skill-items {
+      color: var(--ink-muted);
+    }
+    .about-card-content .exp-item {
+      margin-bottom: var(--space-sm);
+    }
+    .about-card-content .exp-company {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .about-card-content .exp-role {
+      color: var(--stone);
+      font-size: 0.82rem;
+    }
+    .about-card-content .exp-date {
+      font-size: 0.78rem;
+      color: var(--stone);
+    }
+    .about-card-content .exp-desc {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      margin-top: 3px;
+      line-height: 1.6;
+    }
+
+    /* ============================================
+       WORKS SECTION
+       ============================================ */
+    .works {
+      padding: var(--space-3xl) 0;
+      background: var(--paper);
+    }
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md);
+    }
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--mist);
+      background: var(--white);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .work-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 3px;
+      background: var(--accent);
+      transition: width 0.4s ease;
+    }
+    .work-card:hover::after { width: 100%; }
+    .work-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .work-card-header {
+      padding: var(--space-lg) var(--space-lg) var(--space-sm);
+    }
+    .work-card-icon {
+      width: 44px; height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cloud);
+      border-radius: var(--radius);
+      font-size: 1.25rem;
+      margin-bottom: var(--space-sm);
+    }
+    .work-card-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: var(--space-xs);
+    }
+    .work-card-meta {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--stone);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-sm);
+    }
+    .work-card-desc {
+      font-size: 0.9rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      padding: 0 var(--space-lg);
+      flex: 1;
+    }
+    .work-card-footer {
+      padding: var(--space-md) var(--space-lg) var(--space-lg);
+    }
+    .work-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 10px 20px;
+      border: 1.5px solid var(--mist);
+      transition: all 0.25s ease;
+    }
+    .work-card-link:hover {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+    .work-card-link svg {
+      width: 14px; height: 14px;
+      transition: transform 0.2s;
+    }
+    .work-card-link:hover svg { transform: translateX(3px); }
+
+    /* ============================================
+       CONTACT
+       ============================================ */
+    .contact {
+      padding: var(--space-3xl) 0;
+      background: var(--ink);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-grid-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    .contact-inner { position: relative; z-index: 2; }
+    .contact .section-label { color: var(--accent); }
+    .contact .section-title { color: var(--white); }
+    .contact .section-line { background: var(--accent); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+    .contact-item {
+      padding: var(--space-lg);
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.25s ease;
+    }
+    .contact-item:hover {
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.03);
+    }
+    .contact-item-label {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--stone);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-xs);
+    }
+    .contact-item-value {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.2s;
+      word-break: break-all;
+    }
+    .contact-item-value:hover { color: var(--accent); }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    footer {
+      padding: var(--space-md) 0;
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+    .footer-text {
+      font-size: 0.75rem;
+      color: var(--stone);
+      letter-spacing: 0.05em;
+    }
+
+    /* ============================================
+       MODE BAR
+       ============================================ */
+    .mode-bar {
+      background: var(--cloud);
+      border-bottom: 1px solid var(--mist);
+      padding: var(--space-xs) 0;
+    }
+    .mode-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      flex-wrap: wrap;
+    }
+    .mode-bar-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--stone);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .mode-chip {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      text-decoration: none;
+      color: var(--ink-muted);
+      border: 1px solid var(--mist);
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .mode-chip:hover {
+      border-color: var(--stone);
+      color: var(--ink);
+    }
+    .mode-chip.active {
+      background: var(--ink);
+      color: var(--white);
+      border-color: var(--ink);
+    }
+
+    /* ============================================
+       ANIMATIONS
+       ============================================ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .animate {
+      opacity: 0;
+      animation: fadeInUp 0.7s ease forwards;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; }
+      .hero-left { order: 2; }
+      .hero-right { order: 1; }
+      .hero-desc { margin: 0 auto var(--space-lg); }
+      .hero-accent-bar { display: none; }
+      .hero-visual { width: 260px; height: 260px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .works-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { gap: var(--space-sm); }
+      .nav-link { font-size: 0.6875rem; }
+      .hero { padding-top: calc(var(--space-2xl) + 40px); }
+      .hero-name { font-size: 2.25rem; }
+      .hero-visual { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <header>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">Sensen<span>.</span></a>
+        <nav class="nav-links">
+          <a href="#about" class="nav-link" data-i18n="nav.about">关于</a>
+          <a href="#works" class="nav-link" data-i18n="nav.works">成果</a>
+          <a href="#contact" class="nav-link" data-i18n="nav.contact">联系</a>
+          <div class="lang-toggle">
+            <button class="lang-btn active" onclick="setLang('zh')">中</button>
+            <button class="lang-btn" onclick="setLang('en')">En</button>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== MODE BAR ========== -->
+  <div id="modeBar" class="mode-bar" style="display:none;">
+    <div class="container">
+      <div class="mode-bar-inner">
+        <span class="mode-bar-label">Viewing:</span>
+        <a href="?" class="mode-chip" id="modeChipDefault">Trading</a>
+        <a href="?mode=engineering" class="mode-chip" id="modeChipEng">Engineering</a>
+        <a href="?mode=finance" class="mode-chip" id="modeChipFin">Finance</a>
+        <a href="?mode=consulting" class="mode-chip" id="modeChipCon">Consulting</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-accent-bar"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-left animate delay-1">
+          <div class="hero-tag">
+            <span class="geo-square"></span>
+            <span data-i18n="hero.tag">Portfolio / 个人主页</span>
+          </div>
+          <h1 class="hero-name">
+            Sensen Zhu<br>
+            <span class="accent-underline name-cn" id="heroNameCn" data-i18n="hero.nameCn">朱森森</span>
+          </h1>
+          <p class="hero-subtitle" id="heroSubtitle">Commodity Trading &middot; Imperial MSc / UCL BEng</p>
+          <p class="hero-desc" id="heroDesc">Chemical engineer with hands-on trading desk experience...</p>
+          <a href="#works" class="hero-cta">
+            <span data-i18n="hero.cta">浏览成果</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+          </a>
+        </div>
+        <div class="hero-right animate delay-2">
+          <div class="hero-visual">
+            <div class="geo-box-1"></div>
+            <div class="geo-box-2"></div>
+            <div class="geo-box-3"></div>
+            <div class="geo-text" data-i18n="hero.visualText">Portfolio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header animate delay-1">
+        <div class="section-label">
+          <span class="geo-circle"></span>
+          <span data-i18n="about.label">About Me</span>
+        </div>
+        <h2 class="section-title" data-i18n="about.title">关于我</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <!-- 教育 -->
+        <div class="about-card animate delay-2">
+          <span class="about-card-icon">&#127891;</span>
+          <h3 class="about-card-title" data-i18n="about.edu.title">教育</h3>
+          <div class="about-card-content" id="aboutEdu">
+            <!-- injected by JS -->
+          </div>
+        </div>
+        <!-- 专长 -->
+        <div class="about-card animate delay-3">
+          <span class="about-card-icon">&#128295;</span>
+          <h3 class="about-card-title" data-i18n="about.skills.title">专长</h3>
+          <div class="about-card-content" id="aboutSkills">
+            <!-- injected by JS -->
+          </div>
+        </div>
+        <!-- 经历 -->
+        <div class="about-card animate delay-4">
+          <span class="about-card-icon">&#128188;</span>
+          <h3 class="about-card-title" data-i18n="about.exp.title">经历</h3>
+          <div class="about-card-content" id="aboutExp">
+            <!-- injected by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== WORKS ========== -->
+  <section class="works" id="works">
+    <div class="container">
+      <div class="section-header animate delay-1">
+        <div class="section-label">
+          <span class="geo-circle"></span>
+          <span data-i18n="works.label">Selected Works</span>
+        </div>
+        <h2 class="section-title" data-i18n="works.title">成果展示</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="works-grid" id="worksGrid">
+        <!-- injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact" id="contact">
+    <div class="contact-grid-bg"></div>
+    <div class="container contact-inner">
+      <div class="section-header animate delay-1">
+        <div class="section-label">
+          <span class="geo-circle"></span>
+          <span data-i18n="contact.label">Get in Touch</span>
+        </div>
+        <h2 class="section-title" data-i18n="contact.title">联系方式</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item animate delay-2">
+          <div class="contact-item-label" data-i18n="contact.email.label">邮箱</div>
+          <a href="mailto:sensenzhuworking@163.com" class="contact-item-value">sensenzhuworking@163.com</a>
+        </div>
+        <div class="contact-item animate delay-3">
+          <div class="contact-item-label" data-i18n="contact.phone.label">电话</div>
+          <a href="tel:+8615327304448" class="contact-item-value">+86 153 2730 4448</a>
+        </div>
+        <div class="contact-item animate delay-4">
+          <div class="contact-item-label" data-i18n="contact.location.label">所在地</div>
+          <span class="contact-item-value" data-i18n="contact.location.value">中国香港 (TTPS)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p class="footer-text">&copy; 2025 Sensen Zhu. Built with precision.</p>
+    </div>
+  </footer>
+
+<script>
+// ============================================
+//  CONFIGURATION — EDIT HERE
+// ============================================
+const CONFIG = {
+  defaultMode: 'trading',
+
+  modes: {
+    /* ---------- Trading ---------- */
+    trading: {
+      subtitle: {
+        zh: "大宗商品交易 · Imperial MSc / UCL BEng",
+        en: "Commodity Trading &middot; Imperial MSc / UCL BEng"
+      },
+      heroDesc: {
+        zh: "帝国理工硕士、UCL学士，化工背景。熟悉PTA/PX/MEG聚酯全产业链逻辑与生产工艺，具备能化产业链研究与数理建模双重能力，形成&ldquo;产业认知+量化工具+金融分析&rdquo;的复合研究框架。",
+        en: "Imperial MSc / UCL BEng in Chemical Engineering. Deep expertise in PTA/PX/MEG polyester value chain, with dual capabilities in energy-chemical research and quantitative modelling."
+      },
+      edu: {
+        zh: `<div class="edu-item">
+          <div class="edu-school">帝国理工学院 <span class="edu-en">Imperial College London</span></div>
+          <div class="edu-meta">高级化学工程硕士 &middot; 2024.09 – 2025.09</div>
+          <div class="edu-courses">核心课程：高级过程设计、可持续能源系统、过程动态与控制、数值方法、最优化方法、传递现象</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">伦敦大学学院 <span class="edu-en">UCL</span></div>
+          <div class="edu-meta">化学工程学士 &middot; 2021.09 – 2024.07</div>
+          <div class="edu-courses">核心课程：热力学、反应工程、分离过程、过程设计与经济学 &middot; 毕业设计：200ktpa乙苯工厂全流程设计</div>
+        </div>`,
+        en: `<div class="edu-item">
+          <div class="edu-school">Imperial College London <span class="edu-en">帝国理工学院</span></div>
+          <div class="edu-meta">MSc Advanced Chemical Engineering &middot; 2024.09 – 2025.09</div>
+          <div class="edu-courses">Core: Advanced Process Design, Sustainable Energy Systems, Process Dynamics & Control, Optimisation Methods</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">University College London <span class="edu-en">伦敦大学学院</span></div>
+          <div class="edu-meta">BEng Chemical Engineering &middot; 2021.09 – 2024.07</div>
+          <div class="edu-courses">Core: Thermodynamics, Reaction Engineering, Separation Processes &middot; Final Project: 200ktpa Ethylbenzene Plant Design</div>
+        </div>`
+      },
+      skills: {
+        zh: `<div class="skill-group"><span class="skill-label">数据分析：</span><span class="skill-items">Python (pandas, matplotlib) / SQL / API 数据采集</span></div>
+        <div class="skill-group"><span class="skill-label">数学优化：</span><span class="skill-items">GAMS / Matlab</span></div>
+        <div class="skill-group"><span class="skill-label">流程建模：</span><span class="skill-items">ASPEN Plus / gPROMS / CFD</span></div>
+        <div class="skill-group"><span class="skill-label">金融工具：</span><span class="skill-items">Excel / Wind / Bloomberg</span></div>
+        <div class="skill-group"><span class="skill-label">产业认知：</span><span class="skill-items">PTA/PX/MEG 聚酯全产业链 / HAZOP 安全分析</span></div>`,
+        en: `<div class="skill-group"><span class="skill-label">Data Analytics:</span> <span class="skill-items">Python (pandas, matplotlib) / SQL / API</span></div>
+        <div class="skill-group"><span class="skill-label">Optimisation:</span> <span class="skill-items">GAMS / Matlab</span></div>
+        <div class="skill-group"><span class="skill-label">Process Modelling:</span> <span class="skill-items">ASPEN Plus / gPROMS / CFD</span></div>
+        <div class="skill-group"><span class="skill-label">Finance:</span> <span class="skill-items">Excel / Wind / Bloomberg</span></div>
+        <div class="skill-group"><span class="skill-label">Industry:</span> <span class="skill-items">PTA/PX/MEG Value Chain / HAZOP</span></div>`
+      },
+      exp: {
+        zh: `<div class="exp-item">
+          <div class="exp-company">中瑞远博智能系统有限公司</div>
+          <div class="exp-role">工艺工程师 &middot; <span class="exp-date">2026.03 – 2026.05</span></div>
+          <div class="exp-desc">主导蒸发浓缩系统工艺研究、HAZOP风险评估、能效量化分析与投资回报测算</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">华泰证券</div>
+          <div class="exp-role">实习 &middot; <span class="exp-date">2023.06 – 2023.09</span></div>
+          <div class="exp-desc">自主完成石油行业区域供需研究，使用 Wind/Bloomberg 跟踪能化企业运营指标</div>
+        </div>`,
+        en: `<div class="exp-item">
+          <div class="exp-company">Zhongrui Yuanbo Intelligent Systems</div>
+          <div class="exp-role">Process Engineer &middot; <span class="exp-date">2026.03 – 2026.05</span></div>
+          <div class="exp-desc">Led evaporation system process design, HAZOP risk assessment, and ROI analysis</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Huatai Securities</div>
+          <div class="exp-role">Intern &middot; <span class="exp-date">2023.06 – 2023.09</span></div>
+          <div class="exp-desc">Conducted oil industry supply-demand research using Wind/Bloomberg</div>
+        </div>`
+      },
+      works: [
+        {
+          icon: "&#128200;",
+          title: { zh: "PTA/PX/MEG 2026年半年度策略报告", en: "PTA/PX/MEG H1 2026 Strategy Report" },
+          meta: { zh: "期货研究报告 &middot; 独立研究 (2026)", en: "Futures Research &middot; Independent Study (2026)" },
+          desc: { zh: "基于&ldquo;产业链传导—供需平衡—地缘冲击—跨品种对比&rdquo;四层框架，拆解PX&rarr;PTA&rarr;MEG&rarr;聚酯&rarr;织造全产业链价格传导。构建PTA供需平衡表，量化霍尔木兹海峡地缘冲击传导路径，给出下半年估值区间。", en: "Four-layer framework covering value chain transmission, supply-demand balance, geopolitical shocks, and cross-product comparison. Built PTA balance sheet and quantified Strait of Hormuz impact transmission path." },
+          pdf: "pdfs/pta-2026-h1-strategy.pdf"
+        },
+        {
+          icon: "&#128300;",
+          title: { zh: "压缩空气储能系统：热力学建模与实验验证", en: "CAES: Thermodynamic Modelling & Experimental Validation" },
+          meta: { zh: "帝国理工大学 &middot; 硕士毕业设计 (2025)", en: "Imperial College London &middot; MSc Thesis (2025)" },
+          desc: { zh: "独立完成液态活塞压缩方案热力学建模，模型测算往返效率73%，与实验数据验证。开发Python数值模型模拟压缩空气储能系统，设计并搭建实验装置。", en: "Independently developed liquid-piston compression thermodynamic model with 73% round-trip efficiency. Built Python numerical model and experimental rig for validation." },
+          pdf: "pdfs/msc-research-project.pdf"
+        },
+        {
+          icon: "&#128214;",
+          title: { zh: "跨季储能技术文献综述", en: "Literature Review: Inter-seasonal Energy Storage" },
+          meta: { zh: "帝国理工大学 &middot; 文献综述 (2025)", en: "Imperial College London &middot; Literature Review (2025)" },
+          desc: { zh: "系统综述跨季储能技术，聚焦液态活塞近等温压缩空气储能的技术路线与热力学分析方法，形成完整的研究方法论框架。", en: "Systematic review of inter-seasonal storage technologies, focusing on liquid-piston near-isothermal CAES and thermodynamic analysis methods." },
+          pdf: "pdfs/literature-review.pdf"
+        }
+      ]
+    },
+
+    /* ---------- Engineering ---------- */
+    engineering: {
+      subtitle: {
+        zh: "化学工程 · Imperial MSc / UCL BEng",
+        en: "Chemical Engineering &middot; Imperial MSc / UCL BEng"
+      },
+      heroDesc: {
+        zh: "化学工程背景，擅长全流程工艺设计与安全分析。具备 ASPEN Plus、gPROMS 全流程仿真经验，拥有化工装置现场研究经验，主导过蒸发浓缩系统工艺设计与HAZOP风险评估。",
+        en: "Chemical engineer with expertise in end-to-end process design and safety analysis. Experienced in ASPEN Plus and gPROMS simulation, with hands-on plant research and HAZOP assessment experience."
+      },
+      edu: {
+        zh: `<div class="edu-item">
+          <div class="edu-school">帝国理工学院 <span class="edu-en">Imperial College London</span></div>
+          <div class="edu-meta">高级化学工程硕士 &middot; 2024.09 – 2025.09</div>
+          <div class="edu-courses">核心课程：高级过程设计、可持续能源系统、过程动态与控制、数值方法、最优化方法、传递现象、偏微分方程</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">伦敦大学学院 <span class="edu-en">UCL</span></div>
+          <div class="edu-meta">化学工程学士 &middot; 2021.09 – 2024.07</div>
+          <div class="edu-courses">核心课程：热力学、反应工程、分离过程、过程设计与经济学 &middot; 毕业设计：200ktpa乙苯工厂全流程设计（ASPEN Plus/gPROMS + HAZOP）</div>
+        </div>`,
+        en: `<div class="edu-item">
+          <div class="edu-school">Imperial College London <span class="edu-en">帝国理工学院</span></div>
+          <div class="edu-meta">MSc Advanced Chemical Engineering &middot; 2024.09 – 2025.09</div>
+          <div class="edu-courses">Core: Advanced Process Design, Sustainable Energy, Process Dynamics & Control, Optimisation, PDEs</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">University College London <span class="edu-en">伦敦大学学院</span></div>
+          <div class="edu-meta">BEng Chemical Engineering &middot; 2021.09 – 2024.07</div>
+          <div class="edu-courses">Core: Thermodynamics, Reaction Engineering, Separation Processes &middot; Final Year: 200ktpa Ethylbenzene Plant (ASPEN Plus/gPROMS + HAZOP)</div>
+        </div>`
+      },
+      skills: {
+        zh: `<div class="skill-group"><span class="skill-label">流程仿真：</span><span class="skill-items">ASPEN Plus / gPROMS / CFD</span></div>
+        <div class="skill-group"><span class="skill-label">数值计算：</span><span class="skill-items">Python / GAMS / Matlab</span></div>
+        <div class="skill-group"><span class="skill-label">工艺设计：</span><span class="skill-items">反应器设计 / 分离序列 / P&ID / HAZOP / SIL</span></div>
+        <div class="skill-group"><span class="skill-label">工程工具：</span><span class="skill-items">AutoCAD / Excel / SQL</span></div>
+        <div class="skill-group"><span class="skill-label">安全分析：</span><span class="skill-items">HAZOP / 安全联锁 / 风险评估</span></div>`,
+        en: `<div class="skill-group"><span class="skill-label">Simulation:</span> <span class="skill-items">ASPEN Plus / gPROMS / CFD</span></div>
+        <div class="skill-group"><span class="skill-label">Computing:</span> <span class="skill-items">Python / GAMS / Matlab</span></div>
+        <div class="skill-group"><span class="skill-label">Process Design:</span> <span class="skill-items">Reactor / Separation / P&ID / HAZOP / SIL</span></div>
+        <div class="skill-group"><span class="skill-label">Tools:</span> <span class="skill-items">AutoCAD / Excel / SQL</span></div>
+        <div class="skill-group"><span class="skill-label">Safety:</span> <span class="skill-items">HAZOP / Safety Interlocks / Risk Assessment</span></div>`
+      },
+      exp: {
+        zh: `<div class="exp-item">
+          <div class="exp-company">中瑞远博智能系统有限公司</div>
+          <div class="exp-role">工艺工程师 &middot; <span class="exp-date">2026.03 – 2026.05</span></div>
+          <div class="exp-desc">主导蒸发浓缩系统工艺研究与方案设计，覆盖化工、制药、食品三大流程制造业。主导3个项目HAZOP系统性风险评估，识别关键控制变量与工艺安全边界</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">华泰证券</div>
+          <div class="exp-role">实习 &middot; <span class="exp-date">2023.06 – 2023.09</span></div>
+          <div class="exp-desc">协助交易台日常数据维护，使用Wind/Bloomberg跟踪能源化工企业运营指标</div>
+        </div>`,
+        en: `<div class="exp-item">
+          <div class="exp-company">Zhongrui Yuanbo Intelligent Systems</div>
+          <div class="exp-role">Process Engineer &middot; <span class="exp-date">2026.03 – 2026.05</span></div>
+          <div class="exp-desc">Led evaporation system process design across chemical, pharmaceutical, and food industries. Conducted HAZOP for 3 projects, identifying critical control variables and safety boundaries.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Huatai Securities</div>
+          <div class="exp-role">Intern &middot; <span class="exp-date">2023.06 – 2023.09</span></div>
+          <div class="exp-desc">Supported trading desk data maintenance using Wind/Bloomberg for energy-chemical sector tracking.</div>
+        </div>`
+      },
+      works: [
+        {
+          icon: "&#128300;",
+          title: { zh: "压缩空气储能系统：热力学建模与实验验证", en: "CAES: Thermodynamic Modelling & Experimental Validation" },
+          meta: { zh: "帝国理工大学 &middot; 硕士毕业设计 (2025)", en: "Imperial College London &middot; MSc Thesis (2025)" },
+          desc: { zh: "独立完成液态活塞压缩方案热力学建模，往返效率73%，与实验数据验证。开发Python数值模型，设计并搭建实验装置。", en: "Independently developed liquid-piston CAES model with 73% round-trip efficiency. Built Python model and experimental rig for validation." },
+          pdf: "pdfs/msc-research-project.pdf"
+        },
+        {
+          icon: "&#9881;",
+          title: { zh: "200ktpa 乙苯工厂全流程设计", en: "200ktpa Ethylbenzene Plant Design" },
+          meta: { zh: "UCL &middot; 本科毕业设计 (2024)", en: "UCL &middot; BEng Final Year Project (2024)" },
+          desc: { zh: "通过ASPEN Plus/gPROMS模拟反应与分离序列，结合HAZOP分析确定关键回路安全等级，完成全流程工厂设计。", en: "Full plant design with ASPEN Plus/gPROMS simulation of reaction and separation sequences, plus HAZOP analysis for safety integrity levels." },
+          pdf: "pdfs/unit-design-1.pdf"
+        },
+        {
+          icon: "&#128207;",
+          title: { zh: "苯硝化反应器设计与 P&ID 控制", en: "Nitration Reactor Design & P&ID Control" },
+          meta: { zh: "UCL &middot; 本科课程设计 (2024)", en: "UCL &middot; Undergraduate Design (2024)" },
+          desc: { zh: "完成苯硝化CSTR反应器工艺设计、动力学建模与敏感性分析，设计控制回路与安全联锁系统，绘制完整P&ID，完成SIL分析。", en: "CSTR reactor design with kinetic modelling and sensitivity analysis. Designed control loops, safety interlocks, full P&ID, and SIL analysis." },
+          pdf: "pdfs/unit-design-2.pdf"
+        },
+        {
+          icon: "&#128214;",
+          title: { zh: "跨季储能技术文献综述", en: "Literature Review: Inter-seasonal Energy Storage" },
+          meta: { zh: "帝国理工大学 &middot; 文献综述 (2025)", en: "Imperial College London &middot; Literature Review (2025)" },
+          desc: { zh: "系统综述跨季储能技术，聚焦液态活塞近等温压缩空气储能的技术路线与热力学分析方法。", en: "Systematic review of inter-seasonal storage technologies, focusing on liquid-piston near-isothermal CAES and thermodynamic analysis methods." },
+          pdf: "pdfs/literature-review.pdf"
+        }
+      ]
+    },
+
+    /* ---------- Finance ---------- */
+    finance: {
+      subtitle: {
+        zh: "行业研究 · Imperial MSc / UCL BEng",
+        en: "Equity Research &middot; Imperial MSc / UCL BEng"
+      },
+      heroDesc: {
+        zh: "化工+金融复合背景，具备华泰证券实习经验。擅长行业研究、DCF财务建模与数据驱动分析，熟悉能源化工企业运营指标跟踪，CFA Level I备考中。",
+        en: "Chemical engineering + finance background with Huatai Securities internship. Skilled in sector research, DCF valuation, and data-driven analysis. CFA Level I candidate."
+      },
+      edu: {
+        zh: `<div class="edu-item">
+          <div class="edu-school">帝国理工学院 <span class="edu-en">Imperial College London</span></div>
+          <div class="edu-meta">高级化学工程硕士 &middot; 2024.09 – 2025.09</div>
+          <div class="edu-courses">核心课程：高级过程设计、可持续能源系统、最优化方法、统计学</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">伦敦大学学院 <span class="edu-en">UCL</span></div>
+          <div class="edu-meta">化学工程学士 &middot; 2021.09 – 2024.07</div>
+          <div class="edu-courses">核心课程：过程设计与经济学、热力学、反应工程</div>
+        </div>`,
+        en: `<div class="edu-item">
+          <div class="edu-school">Imperial College London <span class="edu-en">帝国理工学院</span></div>
+          <div class="edu-meta">MSc Advanced Chemical Engineering &middot; 2024.09 – 2025.09</div>
+          <div class="edu-courses">Core: Advanced Process Design, Sustainable Energy, Optimisation, Statistics</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">University College London <span class="edu-en">伦敦大学学院</span></div>
+          <div class="edu-meta">BEng Chemical Engineering &middot; 2021.09 – 2024.07</div>
+          <div class="edu-courses">Core: Process Design & Economics, Thermodynamics, Reaction Engineering</div>
+        </div>`
+      },
+      skills: {
+        zh: `<div class="skill-group"><span class="skill-label">财务建模：</span><span class="skill-items">DCF估值 / 三表联动 / WACC测算 / 情景分析</span></div>
+        <div class="skill-group"><span class="skill-label">数据分析：</span><span class="skill-items">Python / SQL / Excel高级建模 / Wind / Bloomberg</span></div>
+        <div class="skill-group"><span class="skill-label">行业研究：</span><span class="skill-items">能源化工 / PTA产业链 / 供需平衡表 / 地缘政治影响评估</span></div>
+        <div class="skill-group"><span class="skill-label">量化工具：</span><span class="skill-items">GAMS / Matlab / 数值方法</span></div>
+        <div class="skill-group"><span class="skill-label">专业资质：</span><span class="skill-items">CFA Level I Candidate</span></div>`,
+        en: `<div class="skill-group"><span class="skill-label">Financial Modelling:</span> <span class="skill-items">DCF / Three-Statement / WACC / Scenario Analysis</span></div>
+        <div class="skill-group"><span class="skill-label">Data Analytics:</span> <span class="skill-items">Python / SQL / Excel / Wind / Bloomberg</span></div>
+        <div class="skill-group"><span class="skill-label">Sector Research:</span> <span class="skill-items">Energy/Chemicals / PTA Chain / Supply-Demand / Geopolitics</span></div>
+        <div class="skill-group"><span class="skill-label">Quantitative:</span> <span class="skill-items">GAMS / Matlab / Numerical Methods</span></div>
+        <div class="skill-group"><span class="skill-label">Credentials:</span> <span class="skill-items">CFA Level I Candidate</span></div>`
+      },
+      exp: {
+        zh: `<div class="exp-item">
+          <div class="exp-company">华泰证券</div>
+          <div class="exp-role">实习 &middot; <span class="exp-date">2023.06 – 2023.09</span></div>
+          <div class="exp-desc">自主完成石油行业区域供需研究，使用Wind/Bloomberg跟踪能化企业运营指标，参与卖方研究讨论，积累交易台支持经验</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">中瑞远博智能系统有限公司</div>
+          <div class="exp-role">工艺工程师 &middot; <span class="exp-date">2026.03 – 2026.05</span></div>
+          <div class="exp-desc">运用定量分析方法评估装置能效，量化识别节能改进空间并输出投资回报测算，建立工艺数据到商业结论的分析闭环</div>
+        </div>`,
+        en: `<div class="exp-item">
+          <div class="exp-company">Huatai Securities</div>
+          <div class="exp-role">Intern &middot; <span class="exp-date">2023.06 – 2023.09</span></div>
+          <div class="exp-desc">Conducted oil industry regional supply-demand research using Wind/Bloomberg. Participated in sell-side research discussions and trading desk support.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Zhongrui Yuanbo</div>
+          <div class="exp-role">Process Engineer &middot; <span class="exp-date">2026.03 – 2026.05</span></div>
+          <div class="exp-desc">Applied quantitative analysis to evaluate plant energy efficiency, quantify improvement opportunities, and deliver ROI calculations.</div>
+        </div>`
+      },
+      works: [
+        {
+          icon: "&#128200;",
+          title: { zh: "PTA/PX/MEG 2026年半年度策略报告", en: "PTA/PX/MEG H1 2026 Strategy Report" },
+          meta: { zh: "期货研究报告 &middot; 独立研究 (2026)", en: "Futures Research &middot; Independent Study (2026)" },
+          desc: { zh: "四层分析框架：产业链传导、供需平衡、地缘冲击、跨品种对比。构建PTA供需平衡表，量化霍尔木兹海峡冲击传导路径，给出PTA/PX下半年估值区间。", en: "Four-layer framework with PTA supply-demand balance sheet, Strait of Hormuz impact quantification, and H2 valuation ranges for PTA and PX." },
+          pdf: "pdfs/pta-2026-h1-strategy.pdf"
+        },
+        {
+          icon: "&#128300;",
+          title: { zh: "压缩空气储能：技术经济分析视角", en: "CAES: A Techno-economic Perspective" },
+          meta: { zh: "帝国理工大学 &middot; 硕士研究 (2025)", en: "Imperial College London &middot; MSc Research (2025)" },
+          desc: { zh: "从LCOE建模、碳捕集经济性到氢价值链的系统性技术经济评估，模型往返效率73%。", en: "Systematic techno-economic assessment from LCOE modelling to hydrogen value chain. Model achieved 73% round-trip efficiency." },
+          pdf: "pdfs/msc-research-project.pdf"
+        },
+        {
+          icon: "&#128214;",
+          title: { zh: "跨季储能技术文献综述", en: "Literature Review: Inter-seasonal Energy Storage" },
+          meta: { zh: "帝国理工大学 &middot; 文献综述 (2025)", en: "Imperial College London &middot; Literature Review (2025)" },
+          desc: { zh: "系统综述跨季储能技术的技术路线与经济性评估方法，为产业投资决策提供研究框架支撑。", en: "Systematic review of inter-seasonal storage technologies and economic assessment methods, providing research framework for industry investment decisions." },
+          pdf: "pdfs/literature-review.pdf"
+        }
+      ]
+    },
+
+    /* ---------- Consulting ---------- */
+    consulting: {
+      subtitle: {
+        zh: "战略咨询 · Imperial MSc / UCL BEng",
+        en: "Strategic Consulting &middot; Imperial MSc / UCL BEng"
+      },
+      heroDesc: {
+        zh: "分析型化学工程背景，具备结构化研究、市场分析与跨团队交付经验。擅长将复杂数据提炼为可执行的战略建议，服务能源与工业领域客户。",
+        en: "Analytical chemical engineer with structured research, market analysis, and cross-functional delivery experience. Skilled at synthesising complex data into actionable strategic recommendations."
+      },
+      edu: {
+        zh: `<div class="edu-item">
+          <div class="edu-school">帝国理工学院 <span class="edu-en">Imperial College London</span></div>
+          <div class="edu-meta">高级化学工程硕士 &middot; 2024.09 – 2025.09</div>
+          <div class="edu-courses">核心课程：高级过程设计、可持续能源系统、最优化方法、统计学</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">伦敦大学学院 <span class="edu-en">UCL</span></div>
+          <div class="edu-meta">化学工程学士 &middot; 2021.09 – 2024.07</div>
+          <div class="edu-courses">核心课程：过程设计与经济学、反应工程、分离过程</div>
+        </div>`,
+        en: `<div class="edu-item">
+          <div class="edu-school">Imperial College London <span class="edu-en">帝国理工学院</span></div>
+          <div class="edu-meta">MSc Advanced Chemical Engineering &middot; 2024.09 – 2025.09</div>
+          <div class="edu-courses">Core: Advanced Process Design, Sustainable Energy, Optimisation, Statistics</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-school">University College London <span class="edu-en">伦敦大学学院</span></div>
+          <div class="edu-meta">BEng Chemical Engineering &middot; 2021.09 – 2024.07</div>
+          <div class="edu-courses">Core: Process Design & Economics, Reaction Engineering, Separation Processes</div>
+        </div>`
+      },
+      skills: {
+        zh: `<div class="skill-group"><span class="skill-label">研究分析：</span><span class="skill-items">结构化研究框架 / 产业链梳理 / 竞争格局分析</span></div>
+        <div class="skill-group"><span class="skill-label">数据工具：</span><span class="skill-items">Python / SQL / Excel / PowerPoint</span></div>
+        <div class="skill-group"><span class="skill-label">财务分析：</span><span class="skill-items">DCF估值 / 投资回报测算 / 成本效益分析</span></div>
+        <div class="skill-group"><span class="skill-label">工程认知：</span><span class="skill-items">化工流程 / 能源系统 / 碳足迹评估 / HAZOP</span></div>
+        <div class="skill-group"><span class="skill-label">项目交付：</span><span class="skill-items">跨团队协作 / 客户沟通 / 商业计划书撰写</span></div>`,
+        en: `<div class="skill-group"><span class="skill-label">Research:</span> <span class="skill-items">Structured Frameworks / Value Chain Mapping / Competitive Analysis</span></div>
+        <div class="skill-group"><span class="skill-label">Tools:</span> <span class="skill-items">Python / SQL / Excel / PowerPoint</span></div>
+        <div class="skill-group"><span class="skill-label">Financial:</span> <span class="skill-items">DCF / ROI / Cost-Benefit Analysis</span></div>
+        <div class="skill-group"><span class="skill-label">Engineering:</span> <span class="skill-items">Chemical Processes / Energy Systems / Carbon Footprint / HAZOP</span></div>
+        <div class="skill-group"><span class="skill-label">Delivery:</span> <span class="skill-items">Cross-functional Teams / Client Communication / Proposal Writing</span></div>`
+      },
+      exp: {
+        zh: `<div class="exp-item">
+          <div class="exp-company">华泰证券</div>
+          <div class="exp-role">实习 &middot; <span class="exp-date">2023.06 – 2023.09</span></div>
+          <div class="exp-desc">按区域分类分析全球主要产油区域供需格局，参与团队内部行业分析讨论，积累卖方研究工作模式认知</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">中瑞远博智能系统有限公司</div>
+          <div class="exp-role">工艺工程师 &middot; <span class="exp-date">2026.03 – 2026.05</span></div>
+          <div class="exp-desc">建立从工艺数据提取到商业结论的分析闭环，量化识别节能改进空间并输出投资回报测算</div>
+        </div>`,
+        en: `<div class="exp-item">
+          <div class="exp-company">Huatai Securities</div>
+          <div class="exp-role">Intern &middot; <span class="exp-date">2023.06 – 2023.09</span></div>
+          <div class="exp-desc">Analysed global oil supply-demand by region. Participated in sell-side research discussions and team strategy sessions.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Zhongrui Yuanbo</div>
+          <div class="exp-role">Process Engineer &middot; <span class="exp-date">2026.03 – 2026.05</span></div>
+          <div class="exp-desc">Built data-to-business-conclusion analysis pipeline, quantifying energy savings and delivering ROI assessments.</div>
+        </div>`
+      },
+      works: [
+        {
+          icon: "&#128300;",
+          title: { zh: "压缩空气储能：数值与实验研究", en: "CAES: Numerical & Experimental Investigation" },
+          meta: { zh: "帝国理工大学 &middot; 硕士研究 (2025)", en: "Imperial College London &middot; MSc Research (2025)" },
+          desc: { zh: "开发Python数值模型与实验验证，体现结构化问题解决与数据分析能力，往返效率73%。", en: "Python numerical modelling and experimental validation demonstrating structured problem-solving. Achieved 73% round-trip efficiency." },
+          pdf: "pdfs/msc-research-project.pdf"
+        },
+        {
+          icon: "&#9881;",
+          title: { zh: "200ktpa 乙苯工厂全流程设计", en: "200ktpa Ethylbenzene Plant Design" },
+          meta: { zh: "UCL &middot; 本科毕业设计 (2024)", en: "UCL &middot; BEng Final Year Project (2024)" },
+          desc: { zh: "通过ASPEN Plus/gPROMS模拟反应与分离序列，结合HAZOP分析确定关键回路安全等级，完成全流程工厂设计。", en: "Full plant design with ASPEN Plus/gPROMS simulation of reaction and separation sequences, plus HAZOP analysis for safety integrity levels." },
+          pdf: "pdfs/unit-design-1.pdf"
+        },
+        {
+          icon: "&#128207;",
+          title: { zh: "苯硝化反应器设计与 P&ID 控制", en: "Nitration Reactor Design & P&ID Control" },
+          meta: { zh: "UCL &middot; 本科课程设计 (2024)", en: "UCL &middot; Undergraduate Design (2024)" },
+          desc: { zh: "完成苯硝化CSTR反应器工艺设计、动力学建模与敏感性分析，设计控制回路与安全联锁系统，绘制完整P&ID。", en: "CSTR reactor design with kinetic modelling and sensitivity analysis. Designed control loops, safety interlocks, and full P&ID." },
+          pdf: "pdfs/unit-design-2.pdf"
+        }
+      ]
+    }
+  }
+};
+
+// ============================================
+//  TRANSLATION
+// ============================================
+const I18N = {
+  zh: {
+    'nav.about': '关于', 'nav.works': '成果', 'nav.contact': '联系',
+    'hero.tag': 'Portfolio / 个人主页', 'hero.nameCn': '朱森森', 'hero.cta': '浏览成果', 'hero.visualText': 'Portfolio',
+    'about.label': 'About Me', 'about.title': '关于我',
+    'about.edu.title': '教育', 'about.skills.title': '专长', 'about.exp.title': '经历',
+    'works.label': 'Selected Works', 'works.title': '成果展示', 'works.viewPdf': '查看 PDF',
+    'contact.label': 'Get in Touch', 'contact.title': '联系方式',
+    'contact.email.label': '邮箱', 'contact.phone.label': '电话', 'contact.location.label': '所在地',
+    'contact.location.value': '中国香港 (TTPS)'
+  },
+  en: {
+    'nav.about': 'About', 'nav.works': 'Works', 'nav.contact': 'Contact',
+    'hero.tag': 'Portfolio', 'hero.nameCn': '', 'hero.cta': 'View Works', 'hero.visualText': 'Portfolio',
+    'about.label': 'About Me', 'about.title': 'About Me',
+    'about.edu.title': 'Education', 'about.skills.title': 'Skills', 'about.exp.title': 'Experience',
+    'works.label': 'Selected Works', 'works.title': 'Selected Works', 'works.viewPdf': 'View PDF',
+    'contact.label': 'Get in Touch', 'contact.title': 'Contact',
+    'contact.email.label': 'Email', 'contact.phone.label': 'Phone', 'contact.location.label': 'Location',
+    'contact.location.value': 'Hong Kong (TTPS)'
+  }
+};
+
+let currentLang = 'zh';
+let currentMode = CONFIG.defaultMode;
+
+function getUrlParam(name) {
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+function renderWorks(works) {
+  const grid = document.getElementById('worksGrid');
+  if (!works || works.length === 0) { grid.innerHTML = ''; return; }
+  grid.innerHTML = works.map((work, i) => `
+    <div class="work-card animate delay-${Math.min(i + 2, 4)}">
+      <div class="work-card-header">
+        <div class="work-card-icon">${work.icon}</div>
+        <h3 class="work-card-title">${work.title[currentLang]}</h3>
+        <div class="work-card-meta">${work.meta[currentLang]}</div>
+      </div>
+      <div class="work-card-desc">${work.desc[currentLang]}</div>
+      <div class="work-card-footer">
+        <a href="${work.pdf}" target="_blank" class="work-card-link">
+          <span>${I18N[currentLang]['works.viewPdf']}</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderMode() {
+  const mode = CONFIG.modes[currentMode] || CONFIG.modes[CONFIG.defaultMode];
+
+  document.getElementById('heroSubtitle').innerHTML = mode.subtitle[currentLang];
+  document.getElementById('heroDesc').innerHTML = mode.heroDesc[currentLang];
+
+  // About cards
+  document.getElementById('aboutEdu').innerHTML = mode.edu[currentLang];
+  document.getElementById('aboutSkills').innerHTML = mode.skills[currentLang];
+  document.getElementById('aboutExp').innerHTML = mode.exp[currentLang];
+
+  renderWorks(mode.works);
+
+  // Mode bar
+  const modeBar = document.getElementById('modeBar');
+  if (currentMode !== CONFIG.defaultMode) {
+    modeBar.style.display = 'block';
+    document.querySelectorAll('.mode-chip').forEach(c => c.classList.remove('active'));
+    const chipMap = { trading: 'modeChipDefault', engineering: 'modeChipEng', finance: 'modeChipFin', consulting: 'modeChipCon' };
+    if (chipMap[currentMode]) document.getElementById(chipMap[currentMode]).classList.add('active');
+  } else {
+    modeBar.style.display = 'none';
+  }
+
+  // Title
+  const titles = {
+    trading: { zh: 'Sensen Zhu — 大宗商品交易', en: 'Sensen Zhu — Commodity Trading' },
+    engineering: { zh: 'Sensen Zhu — 化学工程', en: 'Sensen Zhu — Chemical Engineering' },
+    finance: { zh: 'Sensen Zhu — 行业研究', en: 'Sensen Zhu — Equity Research' },
+    consulting: { zh: 'Sensen Zhu — 战略咨询', en: 'Sensen Zhu — Strategic Consulting' }
+  };
+  document.title = (titles[currentMode] || titles.trading)[currentLang];
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().includes(lang === 'zh' ? '中' : 'en'));
+  });
+
+  // Update all i18n text elements
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (I18N[lang][key] !== undefined) {
+      el.innerHTML = I18N[lang][key];
+    }
+  });
+
+  // Handle Chinese name visibility
+  const nameCn = document.getElementById('heroNameCn');
+  if (nameCn) {
+    if (lang === 'en' || !I18N[lang]['hero.nameCn']) {
+      nameCn.classList.add('hidden');
+    } else {
+      nameCn.classList.remove('hidden');
+    }
+  }
+
+  renderMode();
+}
+
+function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.style.animationPlayState = 'running';
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const urlMode = getUrlParam('mode');
+  if (urlMode && CONFIG.modes[urlMode]) currentMode = urlMode;
+
+  // Init name visibility
+  const nameCn = document.getElementById('heroNameCn');
+  if (nameCn && !I18N[currentLang]['hero.nameCn']) nameCn.classList.add('hidden');
+
+  renderMode();
+  initScrollAnimations();
+});
+</script>
+
+</body>
+</html>
