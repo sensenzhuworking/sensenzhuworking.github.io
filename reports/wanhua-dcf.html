@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万华化学 (600309) DCF 估值报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f9fa;
+  --bg2: #ffffff;
+  --ink: #1a1a2e;
+  --muted: #6c757d;
+  --rule: #dee2e6;
+  --accent: #2d5a8a;
+  --accent2: #c85a54;
+  --success: #2e7d32;
+  --warning: #f9a825;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; font-size: 15px; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+header { text-align: center; padding: 3rem 0 2rem; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+header h1 { font-size: 2.2rem; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+header .subtitle { font-size: 1.05rem; color: var(--muted); margin-top: 0.5rem; }
+header .meta { font-size: 0.85rem; color: var(--muted); margin-top: 1rem; }
+
+section { margin-bottom: 3rem; }
+h2 { font-size: 1.4rem; font-weight: 700; color: var(--accent); margin-bottom: 1.2rem; padding-bottom: 0.4rem; border-bottom: 2px solid var(--rule); }
+h3 { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin: 1.5rem 0 0.8rem; }
+p { margin-bottom: 1rem; }
+
+.card { background: var(--bg2); border: 1px solid var(--rule); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.metric-card { background: var(--bg2); border: 1px solid var(--rule); border-radius: 8px; padding: 1.2rem; text-align: center; }
+.metric-value { font-size: 1.6rem; font-weight: 700; color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+.metric-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.3rem; }
+
+.table-wrap { overflow-x: auto; margin: 1rem 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { padding: 0.6rem 0.8rem; text-align: right; border-bottom: 1px solid var(--rule); }
+th { background: var(--bg); font-weight: 700; color: var(--accent); text-align: right; }
+td:first-child, th:first-child { text-align: left; }
+tr:hover { background: rgba(45,90,138,0.04); }
+
+.chart-figure { margin: 2rem 0; }
+.chart-figure figcaption { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.75rem; }
+.chart-box { width: 100%; min-height: 380px; background: var(--bg2); border: 1px solid var(--rule); border-radius: 8px; }
+
+.callout { background: rgba(45,90,138,0.06); border-left: 4px solid var(--accent); padding: 1rem 1.2rem; margin: 1rem 0; border-radius: 0 6px 6px 0; }
+.callout.warning { background: rgba(200,90,84,0.06); border-left-color: var(--accent2); }
+
+mark.key { background: none; color: var(--accent); font-weight: 600; }
+
+.back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); text-decoration: none; font-size: 0.875rem; font-weight: 500; margin-bottom: 1.5rem; }
+.back-link:hover { text-decoration: underline; }
+
+footer { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
+footer .sources ol { padding-left: 1.2rem; font-size: 0.85rem; color: var(--muted); }
+footer .sources li { margin-bottom: 0.5rem; overflow-wrap: break-word; word-break: break-word; }
+footer .sources .src-title { color: var(--ink); word-break: normal; }
+footer .sources .src-url { display: block; margin-top: 0.15rem; font-size: 0.82rem; color: var(--accent); word-break: break-all; }
+
+@media (max-width: 768px) {
+  .card-grid { grid-template-columns: 1fr; }
+  header h1 { font-size: 1.6rem; }
+  .container { padding: 1rem; }
+  .chart-box { min-height: 300px; }
+}
+@media print {
+  body { background: white; }
+  .chart-figure { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<a href="index.html" class="back-link">&#8592; 返回个人主页</a>
+
+<header>
+  <h1>万华化学 (600309) DCF 估值报告</h1>
+  <div class="subtitle">Gordon Growth Model & Exit Multiple Method</div>
+  <div class="meta">报告日期: 2026年8月4日 | 当前股价: 73.72 元 | 总股本: 31.40 亿股</div>
+</header>
+
+<section>
+  <h2>一、执行摘要</h2>
+  <p>本报告采用 <mark class="key">Gordon Growth Model（永续增长模型）</mark> 与 <mark class="key">Exit Multiple Method（退出倍数法）</mark> 两种 DCF 方法，对万华化学进行绝对估值。核心结论如下：</p>
+
+  <div class="card-grid">
+    <div class="metric-card">
+      <div class="metric-value">80.48</div>
+      <div class="metric-label">Exit Multiple 基准目标价 (元)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">141.41</div>
+      <div class="metric-label">Gordon Growth 基准目标价 (元)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">6.12%</div>
+      <div class="metric-label">WACC</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">110.95</div>
+      <div class="metric-label">两方法平均基准目标价 (元)</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>核心观点：</strong>当前股价 73.72 元已充分反映周期下行预期。Exit Multiple 法显示基准情景下估值与现价基本持平（+9.2%），而 Gordon Growth 法因对永续增长率敏感，给出更高估值空间（+91.8%）。两者平均目标价 110.95 元，隐含 <mark class="key">50.5% 上行空间</mark>。
+  </div>
+</section>
+
+<section>
+  <h2>二、公司概况与业务分拆</h2>
+  <p>万华化学是全球 MDI 龙头，业务覆盖聚氨酯、石化、精细化学品及新材料三大板块。2024 年实现营业收入 <strong>1820.69 亿元</strong>，归母净利润 <strong>130.33 亿元</strong>。</p>
+
+  <h3>2.1 业务线收入分拆</h3>
+  <figure class="chart-figure">
+    <figcaption>图 1: 2024 年营业收入分业务构成</figcaption>
+    <div id="chart-segments" class="chart-box"></div>
+  </figure>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>业务板块</th><th>营业收入(亿元)</th><th>占比</th><th>毛利率</th><th>核心产品</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>MDI 聚氨酯系列</td><td>760.0</td><td>40%</td><td>26.0%</td><td>纯 MDI、聚合 MDI、TDI</td></tr>
+        <tr><td>传统能源材料(石化)</td><td>730.0</td><td>40%</td><td>3.5%</td><td>丙烯、环氧丙烷、乙烯</td></tr>
+        <tr><td>新材料(精细化学品)</td><td>280.0</td><td>15%</td><td>13.0%</td><td>HDI、PC、PMMA、POE</td></tr>
+        <tr><td>其他</td><td>50.7</td><td>3%</td><td>-</td><td>-</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warning">
+    <strong>周期特征：</strong>MDI 业务贡献主要利润（毛利率 26%），但价格随周期波动；石化业务毛利率极低（3.5%），在周期底部几乎盈亏平衡；新材料业务高增长但占比尚小。
+  </div>
+</section>
+
+<section>
+  <h2>三、WACC 计算</h2>
+  <p>加权平均资本成本（WACC）是 DCF 估值的贴现率，反映公司整体资本成本。</p>
+
+  <div class="card-grid">
+    <div class="metric-card"><div class="metric-value">1.70%</div><div class="metric-label">无风险利率 (Rf)</div></div>
+    <div class="metric-card"><div class="metric-value">1.15</div><div class="metric-label">Beta 系数</div></div>
+    <div class="metric-card"><div class="metric-value">5.50%</div><div class="metric-label">市场风险溢价 (ERP)</div></div>
+    <div class="metric-card"><div class="metric-value">8.03%</div><div class="metric-label">权益成本 (Ke)</div></div>
+    <div class="metric-card"><div class="metric-value">1.98%</div><div class="metric-label">税后债务成本 (Kd)</div></div>
+    <div class="metric-card"><div class="metric-value">68.45%</div><div class="metric-label">权益权重 (E/V)</div></div>
+    <div class="metric-card"><div class="metric-value">31.55%</div><div class="metric-label">债务权重 (D/V)</div></div>
+    <div class="metric-card"><div class="metric-value" style="color:var(--accent)">6.12%</div><div class="metric-label">WACC</div></div>
+  </div>
+
+  <p><strong>参数说明：</strong></p>
+  <ul style="margin-left:1.5rem;margin-bottom:1rem;">
+    <li>无风险利率采用中国 10 年期国债收益率约 <strong>1.70%</strong>；</li>
+    <li>Beta 取 <strong>1.15</strong>，反映万华作为化工周期龙头的系统风险高于市场；</li>
+    <li>市场风险溢价采用中国市场常用估计 <strong>5.5%</strong>；</li>
+    <li>债务成本以 2024 年利息支出 / 有息负债估算，税前约 2.64%，税后约 1.98%；</li>
+    <li>资本结构按市值权重：权益市值 2315 亿元，有息负债 1067 亿元。</li>
+  </ul>
+</section>
+
+<section>
+  <h2>四、FCFF 自由现金流预测</h2>
+  <p>预测期为 2025-2029 年（共 5 年）。收入按三大业务线分别设定增长率，资本支出假设随投资高峰期度过而逐年下降。</p>
+
+  <h3>4.1 增长率假设（分业务线）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>业务板块</th><th>指标</th><th>熊市</th><th>基准</th><th>牛市</th></tr>
+      </thead>
+      <tbody>
+        <tr><td rowspan="2">MDI 聚氨酯</td><td>收入增速</td><td>2%</td><td>6%</td><td>10%</td></tr>
+        <tr><td>EBIT 率</td><td>20%</td><td>26%</td><td>30%</td></tr>
+        <tr><td rowspan="2">传统能源材料</td><td>收入增速</td><td>-2%</td><td>4%</td><td>8%</td></tr>
+        <tr><td>EBIT 率</td><td>1%</td><td>3.5%</td><td>6%</td></tr>
+        <tr><td rowspan="2">新材料</td><td>收入增速</td><td>10%</td><td>18%</td><td>25%</td></tr>
+        <tr><td>EBIT 率</td><td>10%</td><td>13%</td><td>15%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4.2 基准情景 FCFF 预测</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>年份</th><th>营收(亿)</th><th>EBIT(亿)</th><th>EBIT率</th><th>NOPAT(亿)</th><th>D&A(亿)</th><th>CapEx(亿)</th><th>&Delta;NWC(亿)</th><th>FCFF(亿)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2025E</td><td>1,949</td><td>287</td><td>14.7%</td><td>215</td><td>127</td><td>320</td><td>15</td><td>6.5</td></tr>
+        <tr><td>2026E</td><td>2,092</td><td>309</td><td>14.8%</td><td>232</td><td>136</td><td>300</td><td>17</td><td>50.6</td></tr>
+        <tr><td>2027E</td><td>2,249</td><td>333</td><td>14.8%</td><td>250</td><td>146</td><td>260</td><td>19</td><td>117.2</td></tr>
+        <tr><td>2028E</td><td>2,424</td><td>360</td><td>14.9%</td><td>270</td><td>158</td><td>220</td><td>21</td><td>186.5</td></tr>
+        <tr><td>2029E</td><td>2,619</td><td>390</td><td>14.9%</td><td>292</td><td>170</td><td>200</td><td>23</td><td>239.1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="chart-figure">
+    <figcaption>图 2: 基准情景 FCFF 与收入预测趋势 (亿元)</figcaption>
+    <div id="chart-fcff" class="chart-box"></div>
+  </figure>
+
+  <div class="callout">
+    <strong>关键假设：</strong>2024 年为资本开支高峰（371 亿元），2025-2027 年随宁波、福建 MDI 扩产及新材料项目推进，资本支出维持较高水平（260-320 亿元），2028 年后逐步降至 200 亿元左右。折旧摊销按营收比例估算（约 6.5%）。
+  </div>
+</section>
+
+<section>
+  <h2>五、Gordon Growth Model 估值</h2>
+  <p>永续增长模型将预测期后价值表示为永续年金：</p>
+  <p style="text-align:center;font-family:'JetBrains Mono',monospace;background:var(--bg2);padding:1rem;border-radius:6px;border:1px solid var(--rule);">
+    终值 = FCFF<sub>2030</sub> &times; (1 + g) / (WACC &minus; g)
+  </p>
+
+  <h3>5.1 估值结果</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>情景</th><th>永续增长率</th><th>预测期 PV(亿)</th><th>终值(亿)</th><th>终值 PV(亿)</th><th>企业价值(亿)</th><th>目标股价(元)</th><th>较现价</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>熊市</td><td>1.0%</td><td>77</td><td>3,891</td><td>2,898</td><td>2,975</td><td>47.49</td><td>-35.6%</td></tr>
+        <tr><td>基准</td><td>2.5%</td><td>161</td><td>9,417</td><td>7,009</td><td>7,170</td><td>141.41</td><td>+91.8%</td></tr>
+        <tr><td>牛市</td><td>3.5%</td><td>340</td><td>17,342</td><td>11,811</td><td>12,151</td><td>323.58</td><td>+338.9%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>六、Exit Multiple Method 估值</h2>
+  <p>退出倍数法以预测期末 EBITDA 乘以行业 EV/EBITDA 倍数估算终值：</p>
+  <p style="text-align:center;font-family:'JetBrains Mono',monospace;background:var(--bg2);padding:1rem;border-radius:6px;border:1px solid var(--rule);">
+    终值 = EBITDA<sub>2029</sub> &times; EV/EBITDA 倍数
+  </p>
+
+  <h3>6.1 估值结果</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>情景</th><th>退出倍数</th><th>2029E EBITDA(亿)</th><th>终值(亿)</th><th>终值 PV(亿)</th><th>企业价值(亿)</th><th>目标股价(元)</th><th>较现价</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>熊市</td><td>5.5x</td><td>356</td><td>1,956</td><td>1,457</td><td>1,534</td><td>21.78</td><td>-70.5%</td></tr>
+        <tr><td>基准</td><td>7.5x</td><td>560</td><td>4,198</td><td>3,124</td><td>3,285</td><td>80.48</td><td>+9.2%</td></tr>
+        <tr><td>牛市</td><td>9.5x</td><td>786</td><td>7,471</td><td>5,535</td><td>5,876</td><td>165.53</td><td>+124.5%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <strong>倍数选取依据：</strong>化工行业 EV/EBITDA 中枢约 6-8x。万华作为 MDI 全球龙头，享有溢价。基准情景取 7.5x，熊市 5.5x（周期底部折价），牛市 9.5x（景气高点溢价）。
+  </div>
+</section>
+
+<section>
+  <h2>七、敏感性分析</h2>
+  <p>以下展示 Gordon Growth 模型下，永续增长率对目标股价的影响（WACC=6.12% 固定）：</p>
+
+  <figure class="chart-figure">
+    <figcaption>图 3: 永续增长率敏感性分析 (目标股价: 元)</figcaption>
+    <div id="chart-sensitivity" class="chart-box"></div>
+  </figure>
+
+  <div class="callout warning">
+    <strong>风险提示：</strong>Gordon Growth 对永续增长率极为敏感。当 WACC=6.12%、g=2.5% 时目标价 141 元；若 g 降至 1.5%，目标价骤降至 52 元。Exit Multiple 法相对稳健，受市场情绪影响更大。
+  </div>
+</section>
+
+<section>
+  <h2>八、估值汇总与结论</h2>
+
+  <figure class="chart-figure">
+    <figcaption>图 4: 三情景目标股价对比 (元)</figcaption>
+    <div id="chart-valuation" class="chart-box"></div>
+  </figure>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>情景</th><th>Gordon Growth</th><th>Exit Multiple</th><th>两方法平均</th><th>隐含市值(亿)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>熊市</td><td>47.49</td><td>21.78</td><td>34.63</td><td>1,087</td></tr>
+        <tr><td>基准</td><td>141.41</td><td>80.48</td><td>110.95</td><td>3,484</td></tr>
+        <tr><td>牛市</td><td>323.58</td><td>165.53</td><td>244.55</td><td>7,679</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8.1 投资建议</h3>
+  <div class="card">
+    <p><strong>当前股价 73.72 元</strong> 位于基准与熊市情景之间，更接近 Exit Multiple 基准估值（80.48 元）。</p>
+    <ul style="margin-left:1.5rem;margin-top:0.8rem;">
+      <li><strong>短期视角（1-2 年）：</strong>化工周期仍在底部震荡，MDI 价格回升节奏不确定，股价或维持 65-85 元区间震荡。</li>
+      <li><strong>中期视角（3-5 年）：</strong>若 MDI 景气回升、新材料放量，Exit Multiple 法给出 80-165 元上行空间。</li>
+      <li><strong>长期视角（5 年+）：</strong>Gordon Growth 法假设永续增长，对周期股适用性有限，但可作为乐观情形参考。</li>
+    </ul>
+  </div>
+
+  <h3>8.2 关键风险</h3>
+  <ol style="margin-left:1.5rem;">
+    <li><strong>周期风险：</strong>MDI 价格受全球供需影响，若产能过剩加剧，盈利恢复将延后；</li>
+    <li><strong>资本开支风险：</strong>2025-2027 年仍处投资高峰期，自由现金流承压，财务杠杆较高；</li>
+    <li><strong>新材料不及预期：</strong>POE、电池材料等新业务竞争激烈，放量节奏存在不确定性；</li>
+    <li><strong>汇率与原料成本：</strong>海外收入占比高，汇率波动及 LPG 等原料价格上涨侵蚀利润。</li>
+  </ol>
+</section>
+
+<footer>
+  <div class="sources">
+    <h2>数据来源</h2>
+    <ol>
+      <li>
+        <span class="src-title">万华化学集团股份有限公司, 2024年年度报告. 营收、利润、资产负债及现金流核心数据.</span>
+        <a class="src-url" href="http://www.sse.com.cn/disclosure/listedinfo/announcement/c/new/2025-04-15/600309_20250415_CQ5Z.pdf" target="_blank" rel="noopener">上交所公告原文</a>
+      </li>
+      <li>
+        <span class="src-title">英为财情 Investing.com, 万华化学 (600309) 利润表与财务指标. EBIT、EBITDA、利息支出等详细数据.</span>
+        <a class="src-url" href="https://cn.investing.com/equities/yantai-wanhua-income-statement" target="_blank" rel="noopener">https://cn.investing.com/equities/yantai-wanhua-income-statement</a>
+      </li>
+      <li>
+        <span class="src-title">雪球, 万华化学2024年报分析. 业务线收入分拆及毛利率数据.</span>
+        <a class="src-url" href="https://xueqiu.com/7808414143/331731302" target="_blank" rel="noopener">https://xueqiu.com/7808414143/331731302</a>
+      </li>
+      <li>
+        <span class="src-title">东方财富网, 万华化学实时行情. 股价、股本、市值数据.</span>
+        <a class="src-url" href="https://quote.eastmoney.com/sh600309.html" target="_blank" rel="noopener">https://quote.eastmoney.com/sh600309.html</a>
+      </li>
+      <li>
+        <span class="src-title">同花顺 iFinD / 公开市场数据, 中国10年期国债收益率、Beta系数及行业估值中枢.</span>
+        <a class="src-url" href="https://m.10jqka.com.cn/stockpage/hs_600309/" target="_blank" rel="noopener">https://m.10jqka.com.cn/stockpage/hs_600309/</a>
+      </li>
+    </ol>
+  </div>
+  <p style="margin-top:2rem;font-size:0.8rem;color:var(--muted);text-align:center;">
+    本报告仅供研究参考，不构成投资建议。估值模型基于公开数据与假设，实际结果可能因市场环境变化而显著不同。
+  </p>
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script>
+// Chart 1: Revenue Segments Pie
+var chart1 = echarts.init(document.getElementById('chart-segments'));
+chart1.setOption({
+  tooltip: { trigger: 'item', formatter: '{b}: {c}亿元 ({d}%)' },
+  legend: { bottom: 10, left: 'center' },
+  color: ['#2d5a8a', '#4a90b8', '#7bb3d9', '#b8d4e8'],
+  series: [{
+    type: 'pie',
+    radius: ['40%', '70%'],
+    avoidLabelOverlap: true,
+    itemStyle: { borderRadius: 6, borderColor: '#fff', borderWidth: 2 },
+    label: { show: true, formatter: '{b}\n{d}%' },
+    data: [
+      {value: 760, name: 'MDI 聚氨酯系列'},
+      {value: 730, name: '传统能源材料'},
+      {value: 280, name: '新材料'},
+      {value: 50.7, name: '其他'}
+    ]
+  }]
+});
+
+// Chart 2: FCFF Trend
+var chart2 = echarts.init(document.getElementById('chart-fcff'));
+chart2.setOption({
+  tooltip: { trigger: 'axis' },
+  legend: { data: ['FCFF', '营业收入'], bottom: 10 },
+  grid: { left: '8%', right: '8%', bottom: '18%', top: '12%', containLabel: true },
+  xAxis: { type: 'category', data: ['2025E', '2026E', '2027E', '2028E', '2029E'], axisLine: { lineStyle: { color: '#ccc' } } },
+  yAxis: [
+    { type: 'value', name: 'FCFF (亿元)', position: 'left', axisLine: { lineStyle: { color: '#c85a54' } }, axisLabel: { color: '#c85a54' } },
+    { type: 'value', name: '营收 (亿元)', position: 'right', axisLine: { lineStyle: { color: '#2d5a8a' } }, axisLabel: { color: '#2d5a8a' } }
+  ],
+  series: [
+    { name: 'FCFF', type: 'bar', data: [6.5, 50.6, 117.2, 186.5, 239.1], itemStyle: { color: '#c85a54', borderRadius: [4,4,0,0] }, barWidth: '35%' },
+    { name: '营业收入', type: 'line', yAxisIndex: 1, data: [1949, 2092, 2249, 2424, 2619], smooth: true, itemStyle: { color: '#2d5a8a' }, lineStyle: { width: 3 }, symbol: 'circle', symbolSize: 8 }
+  ]
+});
+
+// Chart 3: Sensitivity Analysis
+var chart3 = echarts.init(document.getElementById('chart-sensitivity'));
+chart3.setOption({
+  tooltip: { trigger: 'axis' },
+  grid: { left: '10%', right: '8%', bottom: '15%', top: '12%' },
+  xAxis: { type: 'category', data: ['0.5%', '1.0%', '1.5%', '2.0%', '2.5%', '3.0%', '3.5%'], name: '永续增长率 g', nameLocation: 'middle', nameGap: 30, axisLine: { lineStyle: { color: '#ccc' } } },
+  yAxis: { type: 'value', name: '目标股价 (元)', axisLine: { lineStyle: { color: '#ccc' } }, splitLine: { lineStyle: { color: '#eee' } } },
+  series: [{
+    type: 'line',
+    data: [28, 47.49, 65, 85, 141.41, 210, 323.58],
+    smooth: true,
+    itemStyle: { color: '#2d5a8a' },
+    lineStyle: { width: 3 },
+    symbol: 'circle',
+    symbolSize: 10,
+    areaStyle: { color: { type: 'linear', x: 0, y: 0, x2: 0, y2: 1, colorStops: [{offset: 0, color: 'rgba(45,90,138,0.2)'}, {offset: 1, color: 'rgba(45,90,138,0.02)'}] } },
+    markLine: {
+      silent: true,
+      data: [
+        { yAxis: 73.72, lineStyle: { color: '#c85a54', type: 'dashed', width: 2 }, label: { formatter: '当前股价 73.72', position: 'end' } }
+      ]
+    },
+    markPoint: {
+      data: [
+        { coord: ['2.5%', 141.41], value: 141.41, itemStyle: { color: '#2d5a8a' } }
+      ]
+    }
+  }]
+});
+
+// Chart 4: Valuation Comparison
+var chart4 = echarts.init(document.getElementById('chart-valuation'));
+chart4.setOption({
+  tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+  legend: { data: ['Gordon Growth', 'Exit Multiple'], bottom: 10 },
+  grid: { left: '8%', right: '8%', bottom: '18%', top: '12%', containLabel: true },
+  xAxis: { type: 'category', data: ['熊市', '基准', '牛市'], axisLine: { lineStyle: { color: '#ccc' } } },
+  yAxis: { type: 'value', name: '目标股价 (元)', axisLine: { lineStyle: { color: '#ccc' } }, splitLine: { lineStyle: { color: '#eee' } } },
+  series: [
+    { name: 'Gordon Growth', type: 'bar', data: [47.49, 141.41, 323.58], itemStyle: { color: '#2d5a8a', borderRadius: [4,4,0,0] }, barWidth: '30%' },
+    { name: 'Exit Multiple', type: 'bar', data: [21.78, 80.48, 165.53], itemStyle: { color: '#4a90b8', borderRadius: [4,4,0,0] }, barWidth: '30%' }
+  ]
+});
+
+window.addEventListener('resize', function() {
+  chart1.resize();
+  chart2.resize();
+  chart3.resize();
+  chart4.resize();
+});
+</script>
+</body>
+</html>
